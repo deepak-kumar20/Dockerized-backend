@@ -1,4 +1,8 @@
 services:
+  nginx:
+    image: nginx:mainline
+    ports:
+      - "80:80"
   node-app:
     build:
       context: .

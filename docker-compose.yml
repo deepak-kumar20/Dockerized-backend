@@ -1,8 +1,9 @@
 services:
+  nginx:
+    image: nginx:mainline
+   
   node-app:
-    build: .
-    ports:
-      - "3000:3000"
+    build: .  
     environment:
       - PORT=3000
     env_file:

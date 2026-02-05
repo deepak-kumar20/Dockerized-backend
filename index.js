@@ -36,6 +36,7 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log("Mongo error", err));
 
+app.enable("trust proxy");
 // Session config
 app.use(
   session({
@@ -52,6 +53,11 @@ app.use(
 );
 
 app.use(express.json());
+app.get("/api/v1", (req, res) => {
+  res.send("<h2>Hello World</h2>");
+  console.log("Yeah it ran");
+  
+});
 app.use("/api/v1/posts", postRoutes);
 app.use("/api/v1/users", userRoutes);
 
